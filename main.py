@@ -1,4 +1,6 @@
 from random import randint
+import time
+import os
 
 box = {'7': ' ', '8': ' ', '9': ' ',
        '4': ' ', '5': ' ', '6': ' ',
@@ -41,6 +43,7 @@ def game():
                 else:
                     box[move] = player1
                     turn_count += 1
+                    os.system('cls')
                     print_board()
             else:
                 move = input(f"Where do you want to move '{player2}'? ")
@@ -50,6 +53,7 @@ def game():
                 else:
                     box[move] = player2
                     turn_count += 1
+                    os.system('cls')
                     print_board()
         else:
             if turn_count % 2 != 0:
@@ -60,6 +64,7 @@ def game():
                 else:
                     box[move] = player1
                     turn_count += 1
+                    os.system('cls')
                     print_board()
             else:
                 move = str(randint(1, 9))
@@ -68,6 +73,8 @@ def game():
                 else:
                     box[move] = player2
                     turn_count += 1
+                    time.sleep(1.5)
+                    os.system('cls')
                     print_board()
 
         # Look for winning combinations
@@ -109,6 +116,7 @@ while start:
     while inquiry_loop:
         again = input("Do you want to play again? (y/n): ").lower()
         if again == 'y':
+            os.system('cls')
             clear_board()
             inquiry_loop = False
         elif again == 'n':
